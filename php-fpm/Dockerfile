@@ -14,6 +14,10 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 
 RUN echo "date.timezone=$PHP_TIMEZONE" > "$PHP_INI_DIR/conf.d/date_timezone.ini"
 
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug-2.6.0beta1 \
+    && docker-php-ext-enable xdebug
+
 CMD ["php-fpm"]
 
 EXPOSE 9000
