@@ -5,6 +5,8 @@ services:
         container_name: nginx
         build:
             context: ./nginx
+            args:
+                - TZ=Asia/Taipei
         ports:
             - "80:80"
             - "443:443"
@@ -21,6 +23,9 @@ services:
         container_name: php-fpm
         build:
             context: ./php-fpm
+            args:
+                - TZ=Asia/Taipei
+                - PHP_TIMEZONE=Asia/Taipei
         volumes:
             - ../www:/var/www/html
         expose:
@@ -32,6 +37,8 @@ services:
         container_name: mysql
         build:
             context: ./mysql
+            args:
+                - TZ=Asia/Taipei
         environment:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_DATABASE: example_dev
