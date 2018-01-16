@@ -6,8 +6,9 @@ Inspired by [Laradock](https://github.com/laradock/laradock).
 
 ## Requirement
 
-* macOS High Sierra (10.13.2)
-* Docker CE for Mac (17.12.0-ce-mac47)
+I run the containers on **macOS High Sierra (10.13.2)** and **Docker CE for Mac (17.12.0-ce-mac47)**.
+
+The scripts may work on Ubuntu or any other OS, but I did not test on them.
 
 ## Usage
 
