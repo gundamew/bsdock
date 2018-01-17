@@ -23,9 +23,9 @@ $ cd workspace/
 $ git clone git@github.com:gundamew/bsdock.git
 ```
 
-### 4. Create containers
+### 4. Create & run containers
 ```shell
-$ docker-compose build && docker-compose up -d
+$ docker-compose up -d --build
 ```
 
 ## File Structure
