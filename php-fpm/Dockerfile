@@ -12,9 +12,10 @@ RUN apk update \
     && cp /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo "date.timezone=$PHP_TIMEZONE" > "$PHP_INI_DIR/conf.d/date_timezone.ini"
 
-RUN apk add --no-cache $PHPIZE_DEPS \
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     && pecl install xdebug-2.6.0beta1 \
-    && docker-php-ext-enable xdebug
+    && docker-php-ext-enable xdebug \
+    && apk del .build-deps
 
 CMD ["php-fpm"]
 
