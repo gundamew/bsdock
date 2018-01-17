@@ -42,9 +42,9 @@ services:
                 - TZ=Asia/Taipei
         environment:
             MYSQL_ROOT_PASSWORD: secret
-            MYSQL_DATABASE: example_dev
-            MYSQL_USER: example
-            MYSQL_PASSWORD: example
+            MYSQL_DATABASE: homestead
+            MYSQL_USER: homestead
+            MYSQL_PASSWORD: secret
         ports:
             - "3306:3306"
         volumes:
