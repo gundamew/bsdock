@@ -9,5 +9,3 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 COPY ./my.cnf /etc/mysql/conf.d
 
 CMD ["mysqld"]
-
-EXPOSE 3306
