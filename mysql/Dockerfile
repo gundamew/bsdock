@@ -1,4 +1,4 @@
-FROM mysql:5.7.20
+FROM mysql:8.0.11
 
 ARG TZ=UTC
 
