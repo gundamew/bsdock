@@ -8,7 +8,7 @@ ENV TZ $TZ
 RUN apk update \
     && apk add --no-cache tzdata \
     && cp /usr/share/zoneinfo/$TZ /etc/localtime \
-    && echo "date.timezone=$PHP_TIMEZONE" > "$PHP_INI_DIR/conf.d/date_timezone.ini" \
+    && echo "date.timezone=$PHP_TIMEZONE" > "$PHP_INI_DIR/conf.d/date-timezone.ini" \
     && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \

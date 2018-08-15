@@ -27,7 +27,7 @@ services:
                 - TZ=Asia/Taipei
                 - PHP_TIMEZONE=Asia/Taipei
         volumes:
-            - ./php-fpm/php72.ini:/usr/local/etc/php/php.ini
+            - ./php-fpm/php.ini-development:/usr/local/etc/php/php.ini
             - ../www:/var/www/html
         expose:
             - 9000
