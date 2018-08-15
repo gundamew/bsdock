@@ -9,10 +9,10 @@ RUN apk update \
     && apk add --no-cache tzdata \
     && cp /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo "date.timezone=$PHP_TIMEZONE" > "$PHP_INI_DIR/conf.d/date_timezone.ini" \
-    && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+    && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
-    && apk del .build-deps \
+    && apk del .phpize-deps \
     && docker-php-ext-install pdo_mysql \
     && apk add --no-cache --virtual .gd-deps freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-ext-configure gd \
