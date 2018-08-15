@@ -14,12 +14,13 @@ RUN apk update \
     && docker-php-ext-enable xdebug \
     && apk del .phpize-deps \
     && docker-php-ext-install pdo_mysql \
-    && apk add --no-cache --virtual .gd-deps freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
+    && apk add --no-cache freetype libpng libjpeg-turbo \
+    && apk add --no-cache --virtual .gd-deps-dev freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-ext-configure gd \
         --with-freetype-dir=/usr/include/ \
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
-    && apk del .gd-deps
+    && apk del .gd-deps-dev
 
 CMD ["php-fpm"]
