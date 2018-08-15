@@ -21,6 +21,7 @@ RUN apk update \
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
-    && apk del .gd-deps-dev
+    && apk del .gd-deps-dev \
+    && docker-php-ext-install opcache
 
 CMD ["php-fpm"]
