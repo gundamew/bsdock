@@ -4,7 +4,8 @@ ARG TZ=UTC
 
 ENV TZ $TZ
 
-RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends tzdata
 
 COPY ./my.cnf /etc/mysql/conf.d
 
