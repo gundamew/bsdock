@@ -6,7 +6,7 @@ services:
         build:
             context: ./nginx
             args:
-                - TZ=Asia/Taipei
+                - TZ=UTC
         ports:
             - "80:80"
             - "443:443"
@@ -24,8 +24,8 @@ services:
         build:
             context: ./php-fpm
             args:
-                - TZ=Asia/Taipei
-                - PHP_TIMEZONE=Asia/Taipei
+                - TZ=UTC
+                - PHP_TIMEZONE=UTC
         volumes:
             - ./php-fpm/php.ini-development:/usr/local/etc/php/php.ini
             - ../www:/var/www/html
@@ -39,7 +39,7 @@ services:
         build:
             context: ./mysql
             args:
-                - TZ=Asia/Taipei
+                - TZ=UTC
         environment:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_DATABASE: homestead
