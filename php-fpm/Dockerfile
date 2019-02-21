@@ -13,7 +13,7 @@ RUN apk update \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && apk del .phpize-deps \
-    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install mysqli pdo_mysql \
     && apk add --no-cache freetype libpng libjpeg-turbo \
     && apk add --no-cache --virtual .gd-deps-dev freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-ext-configure gd \
