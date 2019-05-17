@@ -1,3 +1,3 @@
-FROM redis:4.0.10-alpine3.8
+FROM redis:5.0.5-stretch
 
 CMD ["redis-server"]
