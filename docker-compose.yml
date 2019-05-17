@@ -25,7 +25,6 @@ services:
             context: ./php-fpm
             args:
                 - TZ=UTC
-                - PHP_TIMEZONE=UTC
         volumes:
             - ./php-fpm/php.ini-development:/usr/local/etc/php/php.ini
             - ../www:/var/www/html
