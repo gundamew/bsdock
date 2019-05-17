@@ -4,7 +4,8 @@ ARG TZ=UTC
 
 ENV TZ $TZ
 
+RUN rm /etc/nginx/conf.d/default.conf
+
 COPY ./nginx.conf /etc/nginx
-COPY ./php-upstream.conf /etc/nginx/conf.d
 
 CMD ["nginx"]
