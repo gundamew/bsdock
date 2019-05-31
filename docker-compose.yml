@@ -18,7 +18,10 @@ services:
         depends_on:
             - php-fpm
         networks:
-            - backend
+            backend:
+                aliases:
+                    - infyom.test
+                    - wordpress.test
 
     php-fpm:
         container_name: php-fpm
