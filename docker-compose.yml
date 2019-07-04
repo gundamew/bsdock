@@ -41,8 +41,6 @@ services:
         container_name: mysql
         build:
             context: ./mysql
-            args:
-                - TZ=UTC
         environment:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_DATABASE: homestead
