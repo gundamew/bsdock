@@ -53,6 +53,21 @@ services:
         networks:
             - backend
 
+    postgresql:
+        container_name: postgresql
+        build:
+            context: ./postgresql
+        environment:
+            POSTGRES_DB: homestead
+            POSTGRES_USER: homestead
+            POSTGRES_PASSWORD: secret
+        ports:
+            - "5432:5432"
+        volumes:
+            - ../data/postgresql:/var/lib/postgresql
+        networks:
+            - backend
+
     redis:
         container_name: redis
         build:
