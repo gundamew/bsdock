@@ -1,1 +1,3 @@
+nginx/dhparam.pem
+nginx/certs/*
 nginx/sites-available/*.conf

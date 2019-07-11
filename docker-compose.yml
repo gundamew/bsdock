@@ -15,6 +15,9 @@ services:
             - ./nginx/sites-available:/etc/nginx/sites-available
             - ../www:/var/www/html
             - ../logs/nginx:/var/log/nginx
+            - ./nginx/certs:/etc/nginx/certs
+            - ./nginx/snippets:/etc/nginx/snippets
+            - ./nginx/dhparam.pem:/etc/nginx/dhparam.pem
         depends_on:
             - php-fpm
         networks:
