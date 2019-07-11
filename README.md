@@ -10,6 +10,8 @@ I run the containers on **macOS High Sierra (10.13.4)** and **Docker CE for Mac 
 
 The scripts may work on Ubuntu or any other OS, but I did not test on them.
 
+It uses [mkcert](https://github.com/FiloSottile/mkcert) to create self-signed SSL certificates.
+
 ## Usage
 
 ### 1. Create workspace
@@ -23,7 +25,19 @@ $ cd workspace/
 $ git clone git@github.com:gundamew/bsdock.git
 ```
 
-### 3. Create & run containers
+### 3. Create self-signed SSL certificates
+```shell
+# Create a new local CA first
+$ mkcert -install
+
+# Create new certificates for local development URLs
+$ mkcert example.test localhost 127.0.0.1 ::1
+
+# Create a strong Diffie-Hellman group
+$ sudo openssl dhparam -out /path/to/dhparam.pem 4096
+```
+
+### 4. Create & run containers
 ```shell
 $ docker-compose up -d --build
 ```
